@@ -1,0 +1,19 @@
+import random
+import string
+
+def random_parol (uzunluq=12):
+    dəyərlər = string.ascii_letters + string.digits
+
+    if uzunluq < 8:
+        raise ValueError("Parol uzunluğu en az 8 olmalıdır.")
+
+    parol = ''.join(random.choice(dəyərlər) for _ in range(uzunluq))
+    return parol
+
+if __name__ == "__main__":
+    try:
+        uzunluq = int(input("Parol uzunluğunu daxil edin: "))
+        yeni_parol = random_parol(uzunluq)
+        print(f"Yeni parol: {yeni_parol}")
+    except ValueError as e:
+        print(f"Xəta!!!: {e}")
